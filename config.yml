@@ -1,0 +1,6 @@
+## Tentaculo configuration file.
+---
+# System path where the game save's descriptors are store.
+Game descriptors path: C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\descriptores\
+# System folder where the retrieved save files will be store. It will be created if doesn't exists.
+Target Path: C:\Users\Javier\Tentaculo saves\

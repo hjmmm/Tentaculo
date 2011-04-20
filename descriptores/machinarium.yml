@@ -1,0 +1,71 @@
+## Machinarium Tentaculo descriptor.
+---
+# Name for the folder in the target path.
+Target folder name: Machinarium
+# Directories and files where the save files for the game are store in MS Windows systems.
+# The order of the paths determine both the backup and the restoration order.
+# The following hints can be used as part of the paths (inspired by http://forums.steampowered.com/forums/showthread.php?t=840657):
+#
+# [TEMP]			Temporal files directory for the current user.
+# [PROGRAMS_32]		Program files directory for 32bits programs.
+# [PROGRAMS_64]		Program files directory for 64bits programs.
+# [APPDATA] 		The default location for standard application settings
+# [LOCAL] 			The default location for system-specific application settings
+# [PUBLICDATA] 		The default location for cross-user application settings
+# [PUBLIC] 			The default location for cross-user system settings
+# [SAVEDGAMES] 		The Windows Vista default Saved Games folder
+# [USER_HOME] 		Current user home directory.
+# [DOCUMENTS] 		The default location for the "My Documents" shell folder/library for the current user
+# [USERNAME]		The name of the Windows account you use on your computer
+# [STEAMNAME]		The name of your Steam account
+# [STEAMID]			A numerical identifier for your Steam account
+# [STEAMPATH]		The default location where Steam is installed
+# [STEAMAPPS] 		The default location for Steam Games
+# [STEAMCLOUD]		Files that synchronize with the Steam Cloud
+# [ANY_DIRECTORY]	Search in all directories for the appropriate one. Can NOT be used as the last portion of the path.
+#
+Windows source paths:
+- [APPDATA]\Macromedia\Flash Player\#SharedObjects\[ANY_DIRECTORY]\localhost\program files (x86)\steam\steamapps\common\machinarium\Machinarium.exe\
+- [APPDATA]\Macromedia\Flash Player\#SharedObjects\[ANY_DIRECTORY]\localhost\program files\steam\steamapps\common\machinarium\Machinarium.exe\
+
+
+# User IDs
+# [USERNAME] -- The name of the Windows account you use on your computer
+# [STEAMNAME] -- The name of your Steam account
+# [STEAMID] -- A numerical identifier for your Steam account
+
+# Steam-specific locations
+# [STEAMPATH] -- The default location where Steam is installed
+# Windows 32-bit: C:\Program Files\Steam\
+# Windows 64-bit: C:\Program Files (x86)\Steam\
+
+# [STEAMAPPS] -- The default location for Steam Games
+# All versions: [STEAMPATH]\steamapps\
+
+# [STEAMCLOUD] -- Files that synchronize with the Steam Cloud
+# All versions: [STEAMPATH]\userdata\[STEAMID]\
+
+# General Windows locations
+# [DOCUMENTS] -- The default location for the "My Documents" shell folder/library
+# Windows XP: C:\Documents and Settings\[USERNAME]\My Documents\
+# Windows Vista: C:\Users\[USERNAME]\Documents\
+
+# [APPDATA] -- The default location for standard application settings
+# Windows XP: C:\Documents and Settings\[USERNAME]\Application Data\
+# Windows Vista: C:\Users\[USERNAME]\AppData\Roaming\
+
+# [LOCAL] -- The default location for system-specific application settings
+# Windows XP: C:\Documents and Settings\[USERNAME]\Local Settings\
+# Windows Vista: C:\Users\[USERNAME]\AppData\Local\
+
+# [PUBLICDATA] -- The default location for cross-user application settings
+# Windows XP: C:\Documents and settings\All Users\Application Data\
+# Windows Vista: C:\ProgramData\
+
+# [PUBLIC] -- The default location for cross-user system settings
+# Windows XP: C:\Documents and Settings\All Users\
+# Windows Vista: C:\Users\Public\
+
+# [SAVEDGAMES] -- The Windows Vista default Saved Games folder
+# Windows Vista: C:\Users\[DOCUMENTS]\Saved Games\
+# Windows XP: I do not know of any Windows XP analog for this location. If someone does, please tell me.
