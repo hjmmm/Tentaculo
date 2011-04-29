@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="JM" name="com.withbytes.tentaculo.MainTest" tests="1" time="0.125" timestamp="2011-02-14T00:23:41">
+<testsuite errors="0" failures="0" hostname="JM" name="com.withbytes.tentaculo.descriptor.DescriptorReaderTest" tests="2" time="0.418" timestamp="2011-04-29T22:14:19">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="CO" />
-    <property name="javac.test.classpath" value=":build/classes:C:/Users/Javier/Documents/My Dropbox/Proyectos/Tentaculo/lib/junit_4/junit-4.5.jar" />
+    <property name="javac.test.classpath" value="lib/snakeyaml-1.7.jar:build/classes:C:/Users/Javier/Documents/My Dropbox/Proyectos/Tentaculo/lib/junit_4/junit-4.5.jar:lib/mockito-all-1.8.5.jar" />
     <property name="libs.jsf20.maven-pom" value="" />
     <property name="libs.DataBindingME.src" value="" />
     <property name="libs.j2me_ant_ext.javadoc" value="" />
@@ -59,6 +59,7 @@
     <property name="libs.DataBindingME-SVG.javadoc" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\docs\netbeans_databindingme_svg-api.zip" />
     <property name="libs.restapi.javadoc" value="C:\Program Files\NetBeans 6.9.1\enterprise\docs\jsr311-api-1.1.1-javadoc.zip" />
     <property name="libs.JWSAntTasks.maven-pom" value="" />
+    <property name="libs.ojec-ant-utils.src" value="" />
     <property name="libs.spring-webmvc3.0.src" value="" />
     <property name="libs.restapi.classpath" value="C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\rest\jsr311-api-1.1.1.jar" />
     <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi" />
@@ -80,12 +81,13 @@
     <property name="build.sysclasspath" value="ignore" />
     <property name="libs.jaxws21.javadoc" value="C:\Program Files\NetBeans 6.9.1\java\docs\jaxws-api-doc.zip" />
     <property name="includes" value="**" />
+    <property name="libs.ojec-ant-utils.maven-pom" value="" />
     <property name="user.country" value="CO" />
     <property name="manifest.file" value="manifest.mf" />
     <property name="libs.jstl11.javadoc" value="C:\Program Files\NetBeans 6.9.1\enterprise\docs\javaee6-doc-api.zip" />
     <property name="libs.JMUnit4CLDC11.src" value="" />
     <property name="javadoc.encoding" value="UTF-8" />
-    <property name="javac.classpath" value="" />
+    <property name="javac.classpath" value="lib/snakeyaml-1.7.jar" />
     <property name="libs.JAVADB_DRIVER_LABEL.src" value="" />
     <property name="debug-transport" value="dt_shmem" />
     <property name="netbeans.home" value="C:\Program Files\NetBeans 6.9.1\platform" />
@@ -102,7 +104,7 @@ are welcome to use for any purpose you want!" />
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.6.0_18\jre\lib\endorsed" />
     <property name="libs.Comet-GlassFish-v3.maven-pom" value="" />
     <property name="libs.groovy-all.src" value="" />
-    <property name="netbeans.dynamic.classpath" value="C:\Program Files\NetBeans 6.9.1\platform\core\core.jar;C:\Program Files\NetBeans 6.9.1\platform\core\org-openide-filesystems.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\core_ja.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\core_pt_BR.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\core_zh_CN.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\org-openide-filesystems_ja.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\org-openide-filesystems_pt_BR.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\org-openide-filesystems_zh_CN.jar;C:\Program Files\NetBeans 6.9.1\nb\core\org-netbeans-upgrader.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\core_nb.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\core_nb_ja.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\core_nb_pt_BR.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\core_nb_zh_CN.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\org-netbeans-upgrader_ja.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\org-netbeans-upgrader_pt_BR.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\org-netbeans-upgrader_zh_CN.jar" />
+    <property name="netbeans.dynamic.classpath" value="C:\Users\Javier\.netbeans\6.9\core\core.jar;C:\Users\Javier\.netbeans\6.9\core\locale\core_ja.jar;C:\Users\Javier\.netbeans\6.9\core\locale\core_pt_BR.jar;C:\Users\Javier\.netbeans\6.9\core\locale\core_zh_CN.jar;C:\Program Files\NetBeans 6.9.1\platform\core\org-openide-filesystems.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\org-openide-filesystems_ja.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\org-openide-filesystems_pt_BR.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\org-openide-filesystems_zh_CN.jar;C:\Program Files\NetBeans 6.9.1\nb\core\org-netbeans-upgrader.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\core_nb.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\core_nb_ja.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\core_nb_pt_BR.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\core_nb_zh_CN.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\org-netbeans-upgrader_ja.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\org-netbeans-upgrader_pt_BR.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\org-netbeans-upgrader_zh_CN.jar" />
     <property name="libs.cdc-agui-swing-layout.maven-pom" value="" />
     <property name="jnlp.enabled" value="false" />
     <property name="libs.cdc-pp-awt-layout.src" value="C:\Program Files\NetBeans 6.9.1\mobility\sources\cdc-pp-awt-layout-src.zip" />
@@ -129,8 +131,8 @@ are welcome to use for any purpose you want!" />
     <property name="libs.restlib_gfv3ee6.classpath" value="C:\Program Files\glassfish-3.0.1\glassfish\modules\asm-all-repackaged.jar;C:\Program Files\glassfish-3.0.1\glassfish\modules\jackson-core-asl.jar;C:\Program Files\glassfish-3.0.1\glassfish\modules\jersey-gf-bundle.jar;C:\Program Files\glassfish-3.0.1\glassfish\modules\jersey-multipart.jar;C:\Program Files\glassfish-3.0.1\glassfish\modules\jettison.jar;C:\Program Files\glassfish-3.0.1\glassfish\modules\jsr311-api.jar" />
     <property name="libs.ActiveSync.classpath" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\ext\nbactivesync-5.0.jar" />
     <property name="libs.junit_4.maven-pom" value="" />
-    <property name="javac.test.processorpath" value=":build/classes:C:/Users/Javier/Documents/My Dropbox/Proyectos/Tentaculo/lib/junit_4/junit-4.5.jar" />
-    <property name="netbeans.buildnumber" value="201007282301" />
+    <property name="javac.test.processorpath" value="lib/snakeyaml-1.7.jar:build/classes:C:/Users/Javier/Documents/My Dropbox/Proyectos/Tentaculo/lib/junit_4/junit-4.5.jar:lib/mockito-all-1.8.5.jar" />
+    <property name="netbeans.buildnumber" value="201011082200" />
     <property name="libs.JWSAntTasks.javadoc" value="" />
     <property name="build.generated.sources.dir" value="build/generated-sources" />
     <property name="user.variant" value="" />
@@ -145,7 +147,7 @@ are welcome to use for any purpose you want!" />
     <property name="do.archive+manifest.available+main.class+mkdist.available" value="true" />
     <property name="libs.absolutelayout.maven-pom" value="" />
     <property name="ant.java.version" value="1.6" />
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.6.0_18\jre\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\ATI Stream\bin\x86_64;C:\Program Files (x86)\ATI Stream\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Dell\Dell Wireless WLAN Card;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\MySQL\MySQL Server 5.1\bin;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Windows Live\Shared;C:\Ruby192\bin" />
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.6.0_18\jre\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\ATI Stream\bin\x86_64;C:\Program Files (x86)\ATI Stream\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Dell\Dell Wireless WLAN Card;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\MySQL\MySQL Server 5.1\bin;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\TortoiseGit\bin;C:\Ruby192\bin" />
     <property name="javadoc.author" value="false" />
     <property name="libs.metro.maven-pom" value="" />
     <property name="libs.IdentityAntTasks.classpath" value="C:\Program Files\NetBeans 6.9.1\identity\ant\nblib\org-netbeans-modules-identity-ant.jar;C:\Program Files\NetBeans 6.9.1\identity\modules\org-netbeans-modules-identity-profile-api.jar" />
@@ -172,7 +174,7 @@ are welcome to use for any purpose you want!" />
     <property name="application.vendor" value="Javier Morales" />
     <property name="manifest.available" value="true" />
     <property name="libs.spring-framework300.maven-pom" value="" />
-    <property name="run.test.classpath" value=":build/classes:C:/Users/Javier/Documents/My Dropbox/Proyectos/Tentaculo/lib/junit_4/junit-4.5.jar:build/test/classes" />
+    <property name="run.test.classpath" value="lib/snakeyaml-1.7.jar:build/classes:C:/Users/Javier/Documents/My Dropbox/Proyectos/Tentaculo/lib/junit_4/junit-4.5.jar:lib/mockito-all-1.8.5.jar:build/test/classes" />
     <property name="ant.project.invoked-targets" value="test" />
     <property name="useJavaUtilZip" value="true" />
     <property name="libs.swing-layout.javadoc" value="C:\Program Files\NetBeans 6.9.1\platform\docs\swing-layout-1.0.4-doc.zip" />
@@ -203,12 +205,12 @@ are welcome to use for any purpose you want!" />
     <property name="version-output" value="java version &quot;1.6" />
     <property name="javadoc.preview" value="true" />
     <property name="java.home" value="C:\Program Files\Java\jdk1.6.0_18\jre" />
+    <property name="libs.ojec-ant-utils.javadoc" value="" />
     <property name="libs.jsp-compilation.src" value="" />
     <property name="libs.ricoh-ant-utils.src" value="" />
     <property name="libs.spring-webmvc.src" value="" />
     <property name="libs.ant-contrib.javadoc" value="" />
-    <property name="debug.test.classpath" value=":build/classes:C:/Users/Javier/Documents/My Dropbox/Proyectos/Tentaculo/lib/junit_4/junit-4.5.jar:build/test/classes" />
-    <property name="http.agent" value="Javier (from NetBeans IDE)" />
+    <property name="debug.test.classpath" value="lib/snakeyaml-1.7.jar:build/classes:C:/Users/Javier/Documents/My Dropbox/Proyectos/Tentaculo/lib/junit_4/junit-4.5.jar:lib/mockito-all-1.8.5.jar:build/test/classes" />
     <property name="libs.javaee-endorsed-api-6.0.classpath" value="C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\javaee6-endorsed\javax.annotation.jar;C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\javaee6-endorsed\jaxb-api-osgi.jar;C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\javaee6-endorsed\webservices-api-osgi.jar" />
     <property name="libs.javaee-api-6.0.src" value="" />
     <property name="netbeans.importclass" value="org.netbeans.upgrade.AutoUpgrade" />
@@ -233,7 +235,7 @@ are welcome to use for any purpose you want!" />
     <property name="libs.javaee-web-api-6.0.maven-pom" value="" />
     <property name="libs.cdc-pp-awt-layout.classpath" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\ext\cdc-pp-awt-layout.jar" />
     <property name="libs.cdc-agui-swing-layout.src" value="C:\Program Files\NetBeans 6.9.1\mobility\sources\cdc-agui-swing-layout-src.zip" />
-    <property name="run.classpath" value=":build/classes" />
+    <property name="run.classpath" value="lib/snakeyaml-1.7.jar:build/classes" />
     <property name="libs.hibernate-support.src" value="" />
     <property name="libs.javaee-endorsed-api-6.0.javadoc" value="C:\Program Files\NetBeans 6.9.1\enterprise\docs\javaee6-doc-api.zip" />
     <property name="libs.JMUnit4CLDC11.classpath" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\ext\jmunit4cldc11-1.2.1.jar" />
@@ -251,7 +253,7 @@ are welcome to use for any purpose you want!" />
     <property name="jna.boot.library.path" value="C:\Users\Javier\.netbeans\6.9\var\cache\jna" />
     <property name="sun.java2d.noddraw" value="true" />
     <property name="libs.jsp-compiler.classpath" value="C:\Program Files\NetBeans 6.9.1\enterprise\ant\extra\jspcompile.jar" />
-    <property name="javac.processorpath" value="" />
+    <property name="javac.processorpath" value="lib/snakeyaml-1.7.jar" />
     <property name="libs.spring-webmvc.classpath" value="C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\spring\spring-webmvc-2.5.6.SEC01.jar" />
     <property name="javac.compilerargs" value="" />
     <property name="ant.file" value="C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\build.xml" />
@@ -280,7 +282,7 @@ are welcome to use for any purpose you want!" />
     <property name="libs.jsp-compiler.src" value="" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.6.0_18\jre\bin" />
     <property name="have.sources" value="true" />
-    <property name="debug.classpath" value=":build/classes" />
+    <property name="debug.classpath" value="lib/snakeyaml-1.7.jar:build/classes" />
     <property name="javadoc.private" value="false" />
     <property name="test.src.dir" value="test" />
     <property name="libs.jsf20.classpath" value="C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\jsf-2_0\jsf-api.jar;C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\jsf-2_0\jsf-impl.jar" />
@@ -292,11 +294,11 @@ are welcome to use for any purpose you want!" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="Tentaculo" />
     <property name="netbeans.hash.code" value="unique=NB_CND_FX_GFMOD_GROOVY_JAVA_JC_MOB_PHP_RUBY_WEBEE03b911b02-41b2-47e8-8c4e-b28fc445bb3e_f3ed3373-8977-48cf-adbb-f6545a827767" />
-    <property name="sun.cpu.isalist" value="amd64" />
     <property name="libs.j2me_ant_ext.maven-pom" value="" />
+    <property name="sun.cpu.isalist" value="amd64" />
     <property name="libs.CopyLibs.javadoc" value="" />
-    <property name="org.openide.specification.version" value="6.2" />
     <property name="libs.ActiveSync.javadoc" value="" />
+    <property name="org.openide.specification.version" value="6.2" />
     <property name="libs.hibernate-support.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\antlr-2.7.6.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\asm.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\asm-attrs.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\cglib-2.1.3.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\commons-collections-2.1.1.jar;C:\Program Files\NetBeans 6.9.1\ide\modules\ext\commons-logging-1.1.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\dom4j-1.6.1.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ehcache-1.2.3.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\jdbc2_0-stdext.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\jta.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\hibernate3.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\hibernate-tools.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\hibernate-annotations.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\hibernate-commons-annotations.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\hibernate-entitymanager.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\javassist.jar" />
     <property name="libs.DataBindingME-PIM.classpath" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\ext\netbeans_databindingme_pim.jar" />
     <property name="user.home" value="C:\Users\Javier" />
@@ -307,28 +309,28 @@ are welcome to use for any purpose you want!" />
     <property name="libs.JWSAntTasks.src" value="" />
     <property name="libs.CopyLibs.maven-pom" value="" />
     <property name="jar.index" value="false" />
+    <property name="libs.absolutelayout.javadoc" value="" />
     <property name="libs.hibernate-persistence.maven-pom" value="" />
     <property name="libs.spring-framework300.javadoc" value="" />
-    <property name="libs.absolutelayout.javadoc" value="" />
     <property name="java.specification.name" value="Java Platform API Specification" />
     <property name="libs.swing-app-framework.maven-pom" value="" />
     <property name="libs.NetBeans MIDP Components WMA.classpath" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\ext\netbeans_midp_components_wma.jar" />
     <property name="libs.jakarta_slide_ant_webdav.maven-pom" value="" />
     <property name="libraries.dir" value="C:/Users/Javier/Documents/My Dropbox/Proyectos/Tentaculo/lib" />
-    <property name="jnlp.mixed.code" value="defaut" />
     <property name="libs.sjmc-ant-utils.src" value="" />
+    <property name="jnlp.mixed.code" value="defaut" />
     <property name="java.specification.vendor" value="Sun Microsystems Inc." />
     <property name="libs.cdc-agui-swing-layout.javadoc" value="" />
     <property name="libs.javac-api.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\javac-api-nb-7.0-b07.jar" />
-    <property name="libs.nokiaS80-ant-utils.classpath" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project-nokiaS80.jar" />
     <property name="java.version" value="1.6.0_18" />
-    <property name="libs.NetBeans MIDP Components WMA.javadoc" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\docs\netbeans_midp_components_wma-api.zip" />
+    <property name="libs.nokiaS80-ant-utils.classpath" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project-nokiaS80.jar" />
     <property name="javadoc.version" value="false" />
+    <property name="libs.NetBeans MIDP Components WMA.javadoc" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\docs\netbeans_midp_components_wma-api.zip" />
     <property name="libs.MySQLDriver.javadoc" value="" />
     <property name="org.openide.version" value="deprecated" />
     <property name="libs.restlib_gfv3ee6.maven-pom" value="" />
-    <property name="libs.ActiveSync.maven-pom" value="" />
     <property name="source.encoding" value="UTF-8" />
+    <property name="libs.ActiveSync.maven-pom" value="" />
     <property name="ap.cmd.line.internal" value="" />
     <property name="platforms.Java_TM__Platform_Micro_Edition_SDK_3_0.home" value="C:\Program Files\NetBeans 6.9.1\mobility\Java_ME_platform_SDK_3.0" />
     <property name="libs.junit.maven-pom" value="" />
@@ -350,18 +352,19 @@ are welcome to use for any purpose you want!" />
     <property name="libs.spring-webmvc3.0.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-webmvc-3.0.2.RELEASE.jar" />
     <property name="libs.swing-layout.classpath" value="C:\Program Files\NetBeans 6.9.1\platform\modules\ext\swing-layout-1.0.4.jar" />
     <property name="libs.restlib.src" value="" />
-    <property name="javac.source" value="1.5" />
     <property name="build.generated.dir" value="build/generated" />
+    <property name="javac.source" value="1.5" />
     <property name="line.separator" value="
 " />
-    <property name="libs.hibernate-persistence.src" value="" />
     <property name="libs.proguard.src" value="" />
+    <property name="libs.hibernate-persistence.src" value="" />
     <property name="libs.nb_svg_midp_components.javadoc" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\docs\nb_svg_midp_components-api.zip" />
     <property name="java.specification.version" value="1.6" />
     <property name="libraries.path" value="C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\lib\nblibraries.properties" />
     <property name="java.vm.info" value="mixed mode" />
     <property name="libs.jaxws21.maven-pom" value="" />
     <property name="libs.cdc-ant-utils.javadoc" value="" />
+    <property name="libs.ojec-ant-utils.classpath" value="C:\Users\Javier\.netbeans\6.9\modules\ext\org-netbeans-modules-j2me-cdc-project-ojec.jar" />
     <property name="libs.spring-framework.maven-pom" value="" />
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.6.0_18\jre\lib\resources.jar;C:\Program Files\Java\jdk1.6.0_18\jre\lib\rt.jar;C:\Program Files\Java\jdk1.6.0_18\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.6.0_18\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.6.0_18\jre\lib\jce.jar;C:\Program Files\Java\jdk1.6.0_18\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.6.0_18\jre\classes" />
     <property name="javac.target" value="1.5" />
@@ -370,12 +373,12 @@ are welcome to use for any purpose you want!" />
     <property name="platforms.Java_TM__Platform_Micro_Edition_SDK_3_0.debugcommandline" value="" />
     <property name="src.dir" value="src" />
     <property name="libs.IdentityAntTasks.javadoc" value="" />
-    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
     <property name="annotation.processing.enabled" value="true" />
+    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
     <property name="libs.jsf20.src" value="" />
     <property name="libs.proguard.maven-pom" value="" />
-    <property name="libs.jsf12.src" value="" />
     <property name="libs.DataBindingME-SVG.maven-pom" value="" />
+    <property name="libs.jsf12.src" value="" />
     <property name="libs.nokiadeployment.src" value="" />
     <property name="libs.savaje-ant-utils.javadoc" value="" />
     <property name="libs.JAVADB_DRIVER_LABEL.maven-pom" value="" />
@@ -388,11 +391,11 @@ are welcome to use for any purpose you want!" />
     <property name="dist.dir" value="dist" />
     <property name="libs.groovy-all.javadoc" value="" />
     <property name="do.archive+manifest.available+main.class" value="true" />
-    <property name="javac.fork" value="false" />
-    <property name="libs.sjmc-ant-utils.classpath" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project-sjmc.jar" />
     <property name="libs.groovy-all.classpath" value="C:\Program Files\NetBeans 6.9.1\groovy\modules\ext\groovy-all.jar" />
-    <property name="libs.JMUnit4CLDC10.classpath" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\ext\jmunit4cldc10-1.2.1.jar" />
+    <property name="libs.sjmc-ant-utils.classpath" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project-sjmc.jar" />
+    <property name="javac.fork" value="false" />
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="libs.JMUnit4CLDC10.classpath" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\ext\jmunit4cldc10-1.2.1.jar" />
     <property name="default.javac.source" value="1.6" />
     <property name="debug-transport-by-os" value="dt_shmem" />
     <property name="sun.jnu.encoding" value="Cp1252" />
@@ -411,39 +414,40 @@ are welcome to use for any purpose you want!" />
     <property name="user.timezone" value="" />
     <property name="do.jar" value="true" />
     <property name="platforms.CDC_Java_TM__Platform_Micro_Edition_SDK_3.0.home" value="C:\Program Files\NetBeans 6.9.1\mobility\Java_ME_platform_SDK_3.0" />
-    <property name="libs.ant-contrib.src" value="" />
-    <property name="libs.JAVADB_DRIVER_LABEL.javadoc" value="" />
     <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
+    <property name="libs.JAVADB_DRIVER_LABEL.javadoc" value="" />
+    <property name="libs.ant-contrib.src" value="" />
     <property name="netbeans.dirs" value="C:\Program Files\NetBeans 6.9.1\nb;C:\Program Files\NetBeans 6.9.1\ergonomics;C:\Program Files\NetBeans 6.9.1\ide;C:\Program Files\NetBeans 6.9.1\java;C:\Program Files\NetBeans 6.9.1\xml;C:\Program Files\NetBeans 6.9.1\apisupport;C:\Program Files\NetBeans 6.9.1\webcommon;C:\Program Files\NetBeans 6.9.1\websvccommon;C:\Program Files\NetBeans 6.9.1\enterprise;C:\Program Files\NetBeans 6.9.1\mobility;C:\Program Files\NetBeans 6.9.1\profiler;C:\Program Files\NetBeans 6.9.1\ruby;C:\Program Files\NetBeans 6.9.1\python;C:\Program Files\NetBeans 6.9.1\php;C:\Program Files\NetBeans 6.9.1\visualweb;C:\Program Files\NetBeans 6.9.1\soa;C:\Program Files\NetBeans 6.9.1\identity;C:\Program Files\NetBeans 6.9.1\uml;C:\Program Files\NetBeans 6.9.1\harness;C:\Program Files\NetBeans 6.9.1\cnd;C:\Program Files\NetBeans 6.9.1\dlight;C:\Program Files\NetBeans 6.9.1\groovy;C:\Program Files\NetBeans 6.9.1\extra;C:\Program Files\NetBeans 6.9.1\javafx;C:\Program Files\NetBeans 6.9.1\javacard" />
     <property name="libs.jsf20.javadoc" value="C:\Program Files\NetBeans 6.9.1\enterprise\docs\javaee6-doc-api.zip" />
     <property name="libs.restlib_gfv3ee6.src" value="" />
     <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.6.0_18\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
     <property name="libs.metro.src" value="" />
-    <property name="libs.savaje-ant-utils.maven-pom" value="" />
-    <property name="libs.semc-ant-utils.src" value="" />
     <property name="endorsed.classpath" value="" />
+    <property name="libs.semc-ant-utils.src" value="" />
+    <property name="libs.savaje-ant-utils.maven-pom" value="" />
     <property name="libs.absolutelayout.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\AbsoluteLayout.jar" />
     <property name="excludes" value="" />
     <property name="libs.metro.classpath" value="C:\Program Files\NetBeans 6.9.1\ide\modules\ext\jaxb\activation.jar;C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\metro\webservices-api.jar;C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\metro\webservices-extra-api.jar;C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\metro\webservices-extra.jar;C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\metro\webservices-rt.jar;C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\metro\webservices-tools.jar" />
     <property name="libs.restlib.maven-pom" value="" />
     <property name="libs.DataBindingME.javadoc" value="C:\Program Files\NetBeans 6.9.1\mobility\modules\docs\netbeans_databindingme-api.zip" />
     <property name="apple.laf.useScreenMenuBar" value="true" />
-    <property name="java.class.path" value="C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\build\classes;C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\lib\junit_4\junit-4.5.jar;C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\build\test\classes;C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip;C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant.jar;C:\Program Files\NetBeans 6.9.1\java\ant\patches\72080.jar" />
+    <property name="java.class.path" value="C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\lib\snakeyaml-1.7.jar;C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\build\classes;C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\lib\junit_4\junit-4.5.jar;C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\lib\mockito-all-1.8.5.jar;C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\build\test\classes;C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip;C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant.jar;C:\Program Files\NetBeans 6.9.1\java\ant\patches\72080.jar" />
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.cdc-pp-awt-layout.maven-pom" value="" />
     <property name="os.version" value="6.1" />
-    <property name="application.args" value="" />
+    <property name="application.args" value="&quot;C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\config.yml&quot;" />
+    <property name="file.reference.snakeyaml-1.7.jar" value="lib/snakeyaml-1.7.jar" />
     <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="C:\Program Files\NetBeans 6.9.1\enterprise\docs\javaee6-doc-api.zip" />
-    <property name="main.class.available" value="true" />
     <property name="libs.JMUnit4CLDC11.maven-pom" value="" />
+    <property name="main.class.available" value="true" />
     <property name="libs.toplink.javadoc" value="C:\Program Files\NetBeans 6.9.1\enterprise\docs\javaee6-doc-api.zip" />
     <property name="sun.desktop" value="windows" />
     <property name="libs.nb_svg_midp_components.maven-pom" value="" />
-    <property name="libs.Comet-GlassFish-v3.src" value="" />
     <property name="libs.ricoh-ant-utils.javadoc" value="" />
-    <property name="libs.restlib.javadoc" value="C:\Program Files\NetBeans 6.9.1\enterprise\docs\jersey-client-1.1.5.1-javadoc.zip;C:\Program Files\NetBeans 6.9.1\enterprise\docs\jersey-core-1.1.5.1-javadoc.zip;C:\Program Files\NetBeans 6.9.1\enterprise\docs\jersey-json-1.1.5.1-javadoc.zip;C:\Program Files\NetBeans 6.9.1\enterprise\docs\jersey-spring-1.1.5.1-javadoc.zip;C:\Program Files\NetBeans 6.9.1\enterprise\docs\oauth-client-1.1.5.1-javadoc.zip;C:\Program Files\NetBeans 6.9.1\enterprise\docs\oauth-signature-1.1.5.1-javadoc.zip" />
+    <property name="libs.Comet-GlassFish-v3.src" value="" />
     <property name="libs.NetBeans MIDP Components PDA.maven-pom" value="" />
+    <property name="libs.restlib.javadoc" value="C:\Program Files\NetBeans 6.9.1\enterprise\docs\jersey-client-1.1.5.1-javadoc.zip;C:\Program Files\NetBeans 6.9.1\enterprise\docs\jersey-core-1.1.5.1-javadoc.zip;C:\Program Files\NetBeans 6.9.1\enterprise\docs\jersey-json-1.1.5.1-javadoc.zip;C:\Program Files\NetBeans 6.9.1\enterprise\docs\jersey-spring-1.1.5.1-javadoc.zip;C:\Program Files\NetBeans 6.9.1\enterprise\docs\oauth-client-1.1.5.1-javadoc.zip;C:\Program Files\NetBeans 6.9.1\enterprise\docs\oauth-signature-1.1.5.1-javadoc.zip" />
     <property name="libs.eclipselink.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\eclipselink\eclipselink-2.0.2.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\eclipselink\eclipselink-javax.persistence-2.0.jar" />
     <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 6.9.1\java\docs\beansbinding-1.2.1-doc.zip" />
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
@@ -452,8 +456,8 @@ are welcome to use for any purpose you want!" />
     <property name="libs.CopyLibs.classpath" value="C:/Users/Javier/Documents/My Dropbox/Proyectos/Tentaculo/lib/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar" />
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans 6.9.1\ide\modules\ext\commons-logging-1.1.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-aop-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-asm-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-aspects-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-beans-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-context-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-context-support-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-core-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-expression-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-instrument-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-jdbc-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-jms-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-orm-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-oxm-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-test-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-tx-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-web-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-webmvc-3.0.2.RELEASE.jar;C:\Program Files\NetBeans 6.9.1\java\modules\ext\spring-3.0\spring-struts-3.0.2.RELEASE.jar" />
     <property name="libs.jsp-compiler.maven-pom" value="" />
-    <property name="libs.Java-EE-GlassFish-v3.wsinterop" value="" />
     <property name="libs.spring-webmvc.maven-pom" value="" />
+    <property name="libs.Java-EE-GlassFish-v3.wsinterop" value="" />
     <property name="run.jvmargs" value="" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 6.9.1\java\modules\ext\hibernate\ejb3-persistence.jar" />
     <property name="platforms.Java_TM__Platform_Micro_Edition_SDK_3_0.type" value="UEI-1.0.1" />
@@ -469,6 +473,7 @@ are welcome to use for any purpose you want!" />
     <property name="build.dir" value="build" />
     <property name="libs.jsp-compilation.classpath" value="C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant.jar;C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\servlet2.5-jsp2.1-api.jar;C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\glassfish-jspparser-2.0.jar;C:\Program Files\NetBeans 6.9.1\enterprise\modules\ext\glassfish-logging-2.0.jar;C:\Program Files\NetBeans 6.9.1\ide\modules\ext\commons-logging-1.1.jar;C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant-launcher.jar" />
     <property name="ant.version" value="Apache Ant version 1.8.1 compiled on April 30 2010" />
+    <property name="file.reference.mockito-all-1.8.5.jar" value="lib/mockito-all-1.8.5.jar" />
     <property name="file.encoding" value="Cp1252" />
     <property name="build.classes.excludes" value="**/*.java,**/*.form" />
     <property name="javadoc.nonavbar" value="false" />
@@ -476,9 +481,8 @@ are welcome to use for any purpose you want!" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="ant.file.Tentaculo-impl" value="C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\nbproject\build-impl.xml" />
   </properties>
-  <testcase classname="com.withbytes.tentaculo.MainTest" name="testMain" time="0.0050" />
-  <system-out><![CDATA[main
-Hello Tentaculo!!
-]]></system-out>
+  <testcase classname="com.withbytes.tentaculo.descriptor.DescriptorReaderTest" name="testReadDescriptor" time="0.138" />
+  <testcase classname="com.withbytes.tentaculo.descriptor.DescriptorReaderTest" name="testReadAllDescriptors" time="0.112" />
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

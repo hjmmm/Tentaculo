@@ -25,8 +25,10 @@ Target folder name: And Yet It Moves
 # [ANY_DIRECTORY]	Search in all directories for the appropriate one. Can NOT be used as the last portion of the path.
 #
 Windows source paths:
-- [APPDATA]\Broken Rules\And Yet It Moves Steam 
-
+  - '[APPDATA]\Broken Rules\And Yet It Moves Steam'
+  - '[APPDATA]\Broken Rules\And Yet Moves'
+  - '[APPDATA]\Broken Rules\And Yet It Moves Steam'
+  
 # User IDs
 # [USERNAME] -- The name of the Windows account you use on your computer
 # [STEAMNAME] -- The name of your Steam account
