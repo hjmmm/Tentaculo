@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="JM" name="com.withbytes.tentaculo.descriptor.DescriptorReaderTest" tests="2" time="0.343" timestamp="2011-05-01T00:07:48">
+<testsuite errors="0" failures="1" hostname="JM" name="com.withbytes.tentaculo.traverser.windows.WindowsPathTranslatorTest" tests="2" time="0.163" timestamp="2011-05-01T00:07:51">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="CO" />
@@ -482,8 +482,12 @@ are welcome to use for any purpose you want!" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="ant.file.Tentaculo-impl" value="C:\Users\Javier\Documents\My Dropbox\Proyectos\Tentaculo\nbproject\build-impl.xml" />
   </properties>
-  <testcase classname="com.withbytes.tentaculo.descriptor.DescriptorReaderTest" name="testReadDescriptor" time="0.16" />
-  <testcase classname="com.withbytes.tentaculo.descriptor.DescriptorReaderTest" name="testReadAllDescriptors" time="0.023" />
+  <testcase classname="com.withbytes.tentaculo.traverser.windows.WindowsPathTranslatorTest" name="testTranslatePath" time="0.015">
+    <failure message="expected:&lt;true&gt; but was:&lt;false&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;true&gt; but was:&lt;false&gt;
+	at com.withbytes.tentaculo.traverser.windows.WindowsPathTranslatorTest.testTranslatePath(WindowsPathTranslatorTest.java:79)
+</failure>
+  </testcase>
+  <testcase classname="com.withbytes.tentaculo.traverser.windows.WindowsPathTranslatorTest" name="testSupportsOperativeSystem" time="0.0010" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
