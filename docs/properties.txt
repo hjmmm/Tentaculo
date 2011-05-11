@@ -1,0 +1,35 @@
+Apparently useful properties:
+
+System.getProperties()
+----------------------
+os.arch=amd64
+java.io.tmpdir=C:\Users\Javier\AppData\Local\Temp\
+os.name=Windows 7
+user.home=C:\Users\Javier
+user.name=Javier
+file.separator=\
+sun.desktop=windows
+sun.arch.data.model=64
+
+System.getenv() --- Windows 7 64 bits
+-------------------------------------
+USERPROFILE=C:\Users\Javier
+ProgramData=C:\ProgramData
+ProgramFiles=C:\Program Files
+ProgramFiles(x86)=C:\Program Files (x86)
+TEMP=C:\Users\Javier\AppData\Local\Temp
+SystemDrive=C:
+HOMEDRIVE=C:
+ALLUSERSPROFILE=C:\ProgramData
+TMP=C:\Users\Javier\AppData\Local\Temp
+CommonProgramFiles=C:\Program Files\Common Files
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+PROCESSOR_ARCHITECTURE=AMD64
+OS=Windows_NT
+LOCALAPPDATA=C:\Users\Javier\AppData\Local
+COMPUTERNAME=JM
+windir=C:\Windows
+SystemRoot=C:\Windows
+USERNAME=Javier
+PUBLIC=C:\Users\Public
+APPDATA=C:\Users\Javier\AppData\Roaming

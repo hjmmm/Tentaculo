@@ -11,4 +11,8 @@ public class TentaculoException extends Exception {
         super(message);
     }
 
+    public TentaculoException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
 }

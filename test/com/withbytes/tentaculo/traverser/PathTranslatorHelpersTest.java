@@ -1,6 +1,6 @@
 package com.withbytes.tentaculo.traverser;
 
-import java.util.ArrayList;
+import java.io.File;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -40,7 +40,7 @@ public class PathTranslatorHelpersTest {
     @Test
     public void testGetKeywords() {
         String path = "[LOCAL]/[SOMETHing ELSE]/[me_too]/[andme]/aaaa";
-        PathTranslatorHelpers instance = new PathTranslatorHelpers();
+        PathTranslatorHelpers instance = PathTranslatorHelpers.getInstance();
         String[] expResult = {"LOCAL", "SOMETHing ELSE", "me_too", "andme"};
         List<String> result = instance.getKeywords(path);
         assertArrayEquals(expResult, result.toArray());
@@ -59,9 +59,12 @@ public class PathTranslatorHelpersTest {
         String path1 = "[LOCAL]/[SOMETHing ELSE]/[me_too]/[andme]/aaaa/[me_too]";
         String path2 = "[LOCAL]/[SOMETHing ELSE]/[me_not]/[andme]/aaaa/[me]";
         String path3 = "[me_too]/[SOMETHing ELSE]/[me_not]/[andme]/aaaa/[me]";
+        String path4 = "[me_too]/[TEMP]/[SOMETHing ELSE]/[me_not]/[andme]/aaaa/[me]";
         String keyword = "me_too";
         String value = "me too replaced";
-        PathTranslatorHelpers instance = new PathTranslatorHelpers();
+        String keywordTemp = "TEMP";
+        String valueTemp = "C:\\Users\\Javier\\AppData\\Local\\Temp\\";
+        PathTranslatorHelpers instance = PathTranslatorHelpers.getInstance();
         assertEquals(
                 "[LOCAL]/[SOMETHing ELSE]/me too replaced/[andme]/aaaa/me too replaced",
                 instance.setKeywordValue(path1, keyword, value));
@@ -71,5 +74,27 @@ public class PathTranslatorHelpersTest {
         assertEquals(
                 "me too replaced/[SOMETHing ELSE]/[me_not]/[andme]/aaaa/[me]",
                 instance.setKeywordValue(path3, keyword, value));
+        assertEquals(
+                "[me_too]/"+valueTemp+"/[SOMETHing ELSE]/[me_not]/[andme]/aaaa/[me]",
+                instance.setKeywordValue(path4, keywordTemp, valueTemp));
+
     }
+
+    /**
+     * Test of ensureFinalSeparator method, of class PathTranslatorHelpers.
+     */
+    @Test
+    public void testEnsureFinalSeparator() {
+        PathTranslatorHelpers instance = PathTranslatorHelpers.getInstance();
+        String directory = "AAAA";
+        String anotherDirectory = "DIRECTORY";
+        String expResult = "AAAA"+File.separator;
+        
+        assertEquals(expResult, instance.ensureFinalSeparator(directory));
+        assertEquals(expResult, instance.ensureFinalSeparator(expResult));
+        assertEquals(null, instance.ensureFinalSeparator(null));
+        assertEquals(anotherDirectory+File.separator, instance.ensureFinalSeparator(anotherDirectory));
+        
+    }
+
 }

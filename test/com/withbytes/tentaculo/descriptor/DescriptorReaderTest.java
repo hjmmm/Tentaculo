@@ -1,5 +1,6 @@
 package com.withbytes.tentaculo.descriptor;
 
+import com.withbytes.tentaculo.TestsConfiguration;
 import com.withbytes.tentaculo.TentaculoException;
 import java.util.ArrayList;
 import java.io.File;
@@ -22,7 +23,7 @@ public class DescriptorReaderTest {
     private String testResourcesPath;
 
     public DescriptorReaderTest() {
-        testResourcesPath = "C:\\Users\\Javier\\Documents\\My Dropbox\\Proyectos\\Tentaculo\\test\\resources\\";
+        testResourcesPath = TestsConfiguration.RESOURCES_PATH;
     }
 
     @BeforeClass
