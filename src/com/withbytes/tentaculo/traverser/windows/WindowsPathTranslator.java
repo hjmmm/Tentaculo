@@ -4,6 +4,7 @@ import com.withbytes.tentaculo.TentaculoException;
 import com.withbytes.tentaculo.traverser.IPathTranslator;
 import com.withbytes.tentaculo.traverser.PathTranslatorHelpers;
 import com.withbytes.tentaculo.traverser.WindowsRegistryKey;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -153,7 +154,36 @@ public class WindowsPathTranslator implements IPathTranslator {
         return getEnvironmentVariable("USERNAME");
     }
 
-    public String processAnyDirectory(String base) {
-        return "";
+    public String processAnyDirectory(String path) throws TentaculoException{
+        String[] portions = path.split("\\[ANY_DIRECTORY\\]\\\\");       
+        File candidateFile;
+        File baseFile = new File(portions[0]);        
+        if (!validateAnyDirectoryUse(portions, path)) {
+            return path;
+        }        
+        File[] candidates = baseFile.listFiles();        
+        for(File candidate : candidates) {
+            if (candidate.isDirectory()) {
+                candidateFile = new File(candidate, portions[1]);
+                if (candidateFile.exists()) {
+                    return helper.ensureFinalSeparator(candidateFile.getAbsolutePath());
+                }
+            }
+        }
+        return null;
+    }
+
+    private boolean validateAnyDirectoryUse(String[] portions, String path) throws TentaculoException {
+        if (portions.length!=2) {
+            if (portions.length<2 && !path.contains("[ANY_DIRECTORY]")) {
+                return false;
+            } else {
+                throw new TentaculoException("The [ANY_DIRECTORY] keyword can only be used once per path and is not allowed as the last element in the path.");
+            }
+        }
+        if (helper.getKeywords(path).size()>1){
+            throw new TentaculoException("The [ANY_DIRECTORY] keyword can not be used alongside other keywords.");
+        }
+        return true;
     }
 }

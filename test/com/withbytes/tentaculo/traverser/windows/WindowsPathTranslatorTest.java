@@ -84,12 +84,11 @@ public class WindowsPathTranslatorTest {
      */
     @Test
     public void testTranslatePathWithAnyDirectory() throws Exception {
-        String originalPath = TestsConfiguration.RESOURCES_PATH + "[ANY_DIRECTORY]/hint_directory/";
+        String originalPath = TestsConfiguration.RESOURCES_PATH + "[ANY_DIRECTORY]\\hint_directory\\";
         WindowsPathTranslator instance = new WindowsPathTranslator(defaultHelperMock);
-        String expected = instance.processAnyDirectory(originalPath) + "/hint_directory/";
+        String expected = instance.processAnyDirectory(originalPath);
         String result = instance.translatePath(originalPath);
         assertEquals(expected, result);
-        verify(defaultHelperMock, times(1)).setKeywordValue(anyString(),anyString(), anyString());
     }
 
     
@@ -361,15 +360,37 @@ public class WindowsPathTranslatorTest {
      * Test of processAnyDirectory method, of class WindowsPathTranslator.
      */
     @Test
-    public void testProcessAnyDirectory() {
-        System.out.println("processAnyDirectory");
-        String base = "";
-        WindowsPathTranslator instance = null;
-        String expResult = "";
-        String result = instance.processAnyDirectory(base);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testProcessAnyDirectory() throws TentaculoException {
+        WindowsPathTranslator instance = new WindowsPathTranslator(defaultHelperMock);
+        String pathSuccess = TestsConfiguration.RESOURCES_PATH + "[ANY_DIRECTORY]\\hint_directory";
+        String pathUntouched = TestsConfiguration.RESOURCES_PATH + "random\\";
+        String pathNotFound = TestsConfiguration.RESOURCES_PATH + "[ANY_DIRECTORY]\\false_directory";
+        String pathExceptionDouble = TestsConfiguration.RESOURCES_PATH + "\\[ANY_DIRECTORY]\\[ANY_DIRECTORY]\\hint_directory";
+        String pathExceptionOther = TestsConfiguration.RESOURCES_PATH + "\\[TEMP]\\[ANY_DIRECTORY]\\hint_directory";
+        String pathExceptionLast = TestsConfiguration.RESOURCES_PATH + "random\\[ANY_DIRECTORY]";
+        
+        assertEquals(TestsConfiguration.RESOURCES_PATH + "random\\hint_directory\\",instance.processAnyDirectory(pathSuccess));
+        assertEquals(pathUntouched,instance.processAnyDirectory(pathUntouched));
+        assertEquals(null,instance.processAnyDirectory(pathNotFound));
+
+        try {
+            instance.processAnyDirectory(pathExceptionDouble);
+            fail("The ANY_DIRECTORY keyword can only be used once in a path.");
+        }
+        catch(TentaculoException ex){}
+
+        try {
+            instance.processAnyDirectory(pathExceptionOther);
+            fail("The ANY_DIRECTORY processing is not compatible with other keywords.");
+        }
+        catch(TentaculoException ex){}
+        
+        try {
+            instance.processAnyDirectory(pathExceptionLast);
+            fail("The ANY_DIRECTORY keyword can not be used as the last portion of the path.");
+        }
+        catch(TentaculoException ex){}
+        
     }
 
 }
