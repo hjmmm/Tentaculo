@@ -2,6 +2,7 @@
 package com.withbytes.tentaculo.traverser;
 
 import com.withbytes.tentaculo.TentaculoException;
+import com.withbytes.tentaculo.descriptor.Descriptor;
 
 /**
  * Classes that implement this interface have to be able to take a path and
@@ -23,7 +24,7 @@ public interface ITraverser {
      * @throws TentaculoException If there are problems reading the source
      *         information or serializing it
      */
-    void backupPath(String sourcePath, IPathTranslator translator, String backupPath) throws TentaculoException;
+    boolean backup(String sourcePath, IPathTranslator translator, String backupPath) throws TentaculoException;
     /**
      * Takes the serialized version of the information found in the backupPath
      * and restores it to the sourcePath
@@ -35,5 +36,12 @@ public interface ITraverser {
      * @throws TentaculoException If there are problems with the restoration of
      *                            the information of reading the backup
      */
-    void restorePath(String backupPath, IPathTranslator translator, String sourcePath) throws TentaculoException;
+    boolean restore(String backupPath, IPathTranslator translator, String sourcePath) throws TentaculoException;
+    /**
+     * Checks the paths described by the descriptor and returns true if at least
+     * one of the paths exists.     * 
+     * @param descriptor Descriptor object for the game to check
+     * @return Wheter or not the game is installed acording to the descriptor
+     */
+    boolean isGameInstalled(Descriptor descriptor, IPathTranslator translator) throws TentaculoException;
 }
