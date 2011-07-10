@@ -1,7 +1,7 @@
-## Machinarium Tentaculo descriptor.
+## And Yet It Moves Tentaculo descriptor.
 ---
 # Name for the folder in the target path.
-Target folder name: Machinarium
+Target folder name: And Yet It Moves
 # Directories and files where the save files for the game are store in MS Windows systems.
 # The order of the paths determine both the backup and the restoration order.
 # The following hints can be used as part of the paths (inspired by http://forums.steampowered.com/forums/showthread.php?t=840657):
@@ -25,9 +25,10 @@ Target folder name: Machinarium
 # [ANY_DIRECTORY]	Search in all directories for the appropriate one. Can NOT be used as the last portion of the path.
 #
 Windows source paths:
- - '[APPDATA]\Macromedia\Flash Player\#SharedObjects\[ANY_DIRECTORY]\localhost\program files (x86)\steam\steamapps\common\machinarium\Machinarium.exe\'
- - '[APPDATA]\Macromedia\Flash Player\#SharedObjects\[ANY_DIRECTORY]\localhost\program files\steam\steamapps\common\machinarium\Machinarium.exe\'
-
+  - '[APPDATA]\Broken Rules\And Yet It Moves Steam'
+  - '[APPDATA]\Broken Rules\And Yet Moves'
+  - '[APPDATA]\Broken Rules\And Yet It Moves Steam'
+  
 # User IDs
 # [USERNAME] -- The name of the Windows account you use on your computer
 # [STEAMNAME] -- The name of your Steam account

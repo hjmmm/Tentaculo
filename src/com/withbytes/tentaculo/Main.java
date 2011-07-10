@@ -23,9 +23,14 @@
  */
 package com.withbytes.tentaculo;
 
+import com.withbytes.tentaculo.descriptor.Descriptor;
+import com.withbytes.tentaculo.descriptor.DescriptorReader;
+import com.withbytes.tentaculo.traverser.TraverserFactory;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,19 +48,33 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {
-            Logger logger = Logger.getLogger(Main.class.getName());
+        Logger logger = Logger.getLogger(Main.class.getName());
+        try {            
             if (args.length != 1) {
-                logger.log(Level.INFO, "Tentaculo expects the following parameters: \n\tPath to the configuration file");
+                logger.log(Level.INFO, 
+                        "Tentaculo expects the following parameters: "
+                        +"\n[-backup] CONFIGURATION_PATH"
+                        +"\n\t-backup                    Optional. Performs the backup in addition to printing the translated paths."
+                        +"\n\tCONFIGURATION_PATH         Required. Path to the configuration file"
+                        +"\n\nExample: Tentaculo -backup \"c:\\tentaculo\\\"");
                 System.exit(1);
             }
-            HashMap config = readConfiguration(args[0]);
-            String descriptorsPath, targetPath;
+            boolean backupFlag = args[0].toLowerCase().equals("-backup");
+            HashMap config;
+            String configPath, descriptorsPath, targetPath;
+            configPath = args[0];
+            if (backupFlag){
+                 configPath = args[1];
+            }
+            config = readConfiguration(configPath);
             descriptorsPath = config.get("Game descriptors path").toString();
             targetPath = config.get("Target path").toString();
             logger.log(Level.INFO, "Descriptors path: {0}", descriptorsPath);
             logger.log(Level.INFO, "Target path: {0}", targetPath);
-        } catch (Exception ex) {
+            startTentaculo(descriptorsPath, targetPath, backupFlag);
+        } 
+        catch (Exception ex) {
+            logger.log(Level.SEVERE, "There were a problem that could not be recovered.", ex);
             System.exit(1);
         }
     }
@@ -86,6 +105,33 @@ public class Main {
             }
         }
         return (HashMap)obj;
+    }
+
+    private static void startTentaculo(String descriptorsPath, String targetPath, boolean backupFlag) throws TentaculoException {
+        Logger logger = Logger.getLogger(Main.class.getName());
+        Tentaculo tentaculo = new Tentaculo(new TraverserFactory(), new DescriptorReader());
+        File descriptorsPathFile = new File(descriptorsPath);
+        ArrayList<Descriptor> descriptors = tentaculo.getDescriptors(descriptorsPathFile);
+        for(Descriptor descriptor:descriptors){            
+            printDebugInfo(tentaculo, descriptor);
+            if (backupFlag){
+                logger.log(Level.INFO, "Starting backup of {0}", descriptor.getFolderName());
+                tentaculo.beginBackup(targetPath, descriptor);
+                logger.log(Level.INFO, "Completing backup of {0}", descriptor.getFolderName());
+            }
+        }
+    }
+
+    private static void printDebugInfo(Tentaculo tentaculo, Descriptor descriptor) {
+        ArrayList<String> paths;
+        Logger logger = Logger.getLogger(Main.class.getName());        
+        paths=tentaculo.getTranslatedPaths(descriptor);
+        logger.log(Level.INFO, "Processing descriptor for {0}", descriptor.getFolderName());
+        logger.log(Level.INFO, "{0} Paths in descriptor:", paths.size());        
+        for(int i=0; i<paths.size(); i++){
+            Object[] params =  {i+1, paths.get(i)};
+            logger.log(Level.INFO, "\t{0} {1}", params);
+        }
     }
 
 }

@@ -1,10 +1,12 @@
 package com.withbytes.tentaculo.traverser.windows;
 
 import com.withbytes.tentaculo.TentaculoException;
+import com.withbytes.tentaculo.descriptor.Descriptor;
 import com.withbytes.tentaculo.traverser.IPathTranslator;
 import com.withbytes.tentaculo.traverser.PathTranslatorHelpers;
 import com.withbytes.tentaculo.traverser.WindowsRegistryKey;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -185,5 +187,9 @@ public class WindowsPathTranslator implements IPathTranslator {
             throw new TentaculoException("The [ANY_DIRECTORY] keyword can not be used alongside other keywords.");
         }
         return true;
+    }
+
+    public ArrayList<String> getPathsForSystem(Descriptor descriptor) {
+        return descriptor.getWindowsPaths();
     }
 }

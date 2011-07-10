@@ -39,7 +39,7 @@ public interface ITraverser {
     boolean restore(String backupPath, IPathTranslator translator, String sourcePath) throws TentaculoException;
     /**
      * Checks the paths described by the descriptor and returns true if at least
-     * one of the paths exists.     * 
+     * one of the paths exists.
      * @param descriptor Descriptor object for the game to check
      * @return Wheter or not the game is installed acording to the descriptor
      */

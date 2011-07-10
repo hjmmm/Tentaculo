@@ -25,8 +25,8 @@ Target folder name: Machinarium
 # [ANY_DIRECTORY]	Search in all directories for the appropriate one. Can NOT be used as the last portion of the path.
 #
 Windows source paths:
- - '[APPDATA]\Macromedia\Flash Player\#SharedObjects\[ANY_DIRECTORY]\localhost\program files (x86)\steam\steamapps\common\machinarium\Machinarium.exe\'
- - '[APPDATA]\Macromedia\Flash Player\#SharedObjects\[ANY_DIRECTORY]\localhost\program files\steam\steamapps\common\machinarium\Machinarium.exe\'
+  - '[APPDATA]\Macromedia\Flash Player\#SharedObjects\[ANY_DIRECTORY]\localhost\program files (x86)\steam\steamapps\common\machinarium\Machinarium.exe\'
+  - '[APPDATA]\Macromedia\Flash Player\#SharedObjects\[ANY_DIRECTORY]\localhost\program files\steam\steamapps\common\machinarium\Machinarium.exe\'
 
 # User IDs
 # [USERNAME] -- The name of the Windows account you use on your computer

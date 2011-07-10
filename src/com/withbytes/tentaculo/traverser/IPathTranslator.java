@@ -1,6 +1,8 @@
 package com.withbytes.tentaculo.traverser;
 
 import com.withbytes.tentaculo.TentaculoException;
+import com.withbytes.tentaculo.descriptor.Descriptor;
+import java.util.ArrayList;
 
 /**
  * Classes that implement this interface help to translate the keywords used in
@@ -24,4 +26,12 @@ public interface IPathTranslator {
      * @return
      */
     boolean supportsOperativeSystem(String osName, String osVersion);
+    
+    
+    /**
+     * Gets the paths that are supported by this ITranslator from the descriptor
+     * @param descriptor Descriptor to take the paths from
+     * @return Paths from the descriptor for this system
+     */
+    ArrayList<String> getPathsForSystem(Descriptor descriptor);
 }

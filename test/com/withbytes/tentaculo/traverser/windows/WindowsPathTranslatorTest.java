@@ -1,6 +1,8 @@
 package com.withbytes.tentaculo.traverser.windows;
 
 import com.withbytes.tentaculo.TentaculoException;
+import com.withbytes.tentaculo.descriptor.Descriptor;
+import java.util.ArrayList;
 import java.util.prefs.BackingStoreException;
 import org.powermock.core.classloader.annotations.*;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -391,6 +393,23 @@ public class WindowsPathTranslatorTest {
         }
         catch(TentaculoException ex){}
         
+    }
+
+    /**
+     * Test of getPathsForSystem method, of class WindowsPathTranslator.
+     */
+    @Test
+    public void testGetPathsForSystem() {        
+        Descriptor descriptor = mock(Descriptor.class);
+        ArrayList<String> winPaths = new ArrayList<String>();
+        
+        when(descriptor.getWindowsPaths())
+                .thenReturn(winPaths);
+        
+        WindowsPathTranslator instance = new WindowsPathTranslator(defaultHelperMock);
+        assertEquals(winPaths, instance.getPathsForSystem(descriptor));
+        
+        verify(descriptor).getWindowsPaths();
     }
 
 }

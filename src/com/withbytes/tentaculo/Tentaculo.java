@@ -24,6 +24,16 @@
 package com.withbytes.tentaculo;
 
 import com.withbytes.tentaculo.descriptor.Descriptor;
+import com.withbytes.tentaculo.descriptor.DescriptorReader;
+import com.withbytes.tentaculo.traverser.IPathTranslator;
+import com.withbytes.tentaculo.traverser.ITraverser;
+import com.withbytes.tentaculo.traverser.TraverserFactory;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -31,12 +41,68 @@ import com.withbytes.tentaculo.descriptor.Descriptor;
  */
 public class Tentaculo {
     
-    public void beginBackup(String targetPath, Descriptor descriptor){
-        
+    private TraverserFactory traverserFactory;
+    private DescriptorReader descriptorReader;
+    
+    public Tentaculo(TraverserFactory traverserFactory, DescriptorReader descriptorReader){
+        this.traverserFactory = traverserFactory;
+        this.descriptorReader = descriptorReader;
+    }
+    
+    public boolean beginBackup(String targetPath, Descriptor descriptor) throws TentaculoException{
+        ITraverser traverser = traverserFactory.getTraverser();
+        IPathTranslator translator = traverserFactory.getPathTranslator();
+        ArrayList<String> paths;
+        boolean success = false;
+        if (!traverser.isGameInstalled(descriptor, translator)){
+            return false;
+        }
+        paths = translator.getPathsForSystem(descriptor);
+        if (paths == null) {
+            return false;
+        }
+        for (String path : paths){
+            success = traverser.backup(path, translator, targetPath) || success;
+        }
+        return success;
     }
 
-    public void beginBackup(String targetPath, String descriptorsPath){
-        
+    public Map<Descriptor,Boolean> beginBackup(String targetPath, File descriptorsPath) throws TentaculoException{
+        Map<Descriptor,Boolean> result = new HashMap<Descriptor, Boolean>();
+        File targetDirectoryForDescriptor;
+        ArrayList<Descriptor> descriptors = this.getDescriptors(descriptorsPath);
+        for(Descriptor descriptor:descriptors){
+            targetDirectoryForDescriptor = new File(targetPath, descriptor.getFolderName());
+            targetDirectoryForDescriptor.mkdir();
+            result.put(descriptor, 
+                    this.beginBackup(targetDirectoryForDescriptor.getAbsolutePath(), descriptor));
+        }
+        return result;
     }
-
+    
+    public ArrayList<String> getTranslatedPaths(Descriptor descriptor) throws TentaculoException{
+        IPathTranslator translator = traverserFactory.getPathTranslator();
+        ArrayList<String> paths = translator.getPathsForSystem(descriptor);
+        for(int i=0; i<paths.size(); i++){
+            paths.set(i, translator.translatePath(paths.get(i)));
+        }
+        return translator.getPathsForSystem(descriptor);
+    }
+    
+    public ArrayList<Descriptor> getDescriptors(File descriptorsPath) throws TentaculoException {
+        ArrayList<Descriptor> descriptors = new ArrayList<Descriptor>();
+        File[] descriptorsFiles = descriptorsPath.listFiles();
+        Descriptor descriptor;
+        for(File descriptorFile:descriptorsFiles){
+            try{
+                descriptor = this.descriptorReader.readDescriptor(new FileInputStream(descriptorFile));
+                descriptors.add(descriptor);
+            }catch(IOException ex){
+                throw new TentaculoException(
+                        "There was a problem while opening the descriptor at " + 
+                        descriptorFile.getAbsolutePath(), ex);
+            }
+        }
+        return descriptors;
+    }
 }
