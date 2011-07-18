@@ -50,6 +50,7 @@ public class WindowsPathTranslator implements IPathTranslator {
      *         translations cannot be completed.
      */
     public String translatePath(String originalPath) throws TentaculoException {
+        if (originalPath==null) { return null; }
         List<String> keywords = this.helper.getKeywords(originalPath);
         String newPath = originalPath;
         for (String keyword:keywords){

@@ -85,9 +85,13 @@ public class TentaculoTest {
         String failureTargetPath = "TARGET_FAIL";
         String exceptionTargetPath = "TARGET_EXCEPTION";
         String mixedTargetPath = "TARGET_MIXED";
+        String folderName = "FOLDER_NAME";
         paths.add("1");
         paths.add("2");
         paths.add("3");
+        
+        when(descriptor.getFolderName())
+                .thenReturn(folderName);
         
         when(factory.getPathTranslator())
                 .thenReturn(translator);        
@@ -107,9 +111,6 @@ public class TentaculoTest {
                 .thenReturn(true);
         when(traverser.backup(anyString(),eq(translator),eq(failureTargetPath)))
                 .thenReturn(false);
-        when(traverser.backup(anyString(),eq(translator),eq(exceptionTargetPath)))
-                .thenReturn(true)
-                .thenThrow(exception);
         when(traverser.backup(anyString(),eq(translator),eq(mixedTargetPath)))
                 .thenReturn(false)
                 .thenReturn(true);
@@ -122,12 +123,6 @@ public class TentaculoTest {
         assertEquals(false, instance.beginBackup(successTargetPath, descriptor));
         //Test empty paths array
         assertEquals(false, instance.beginBackup(successTargetPath, descriptor));
-        
-        //Test exception raised
-        try{
-            instance.beginBackup(exceptionTargetPath, descriptor);
-            fail("An exception should have been raised.");
-        }catch(TentaculoException ex){}
         
         //Test all paths failed to copy
         assertEquals(false, instance.beginBackup(failureTargetPath, descriptor));

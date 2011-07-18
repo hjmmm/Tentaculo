@@ -54,6 +54,9 @@ public class Tentaculo {
         IPathTranslator translator = traverserFactory.getPathTranslator();
         ArrayList<String> paths;
         boolean success = false;
+        String path;
+        File targetPathFile = new File(targetPath, descriptor.getFolderName());
+        targetPath = targetPathFile.getAbsolutePath();
         if (!traverser.isGameInstalled(descriptor, translator)){
             return false;
         }
@@ -61,8 +64,11 @@ public class Tentaculo {
         if (paths == null) {
             return false;
         }
-        for (String path : paths){
-            success = traverser.backup(path, translator, targetPath) || success;
+        for (int i=0;i<paths.size(); i++){
+            path = paths.get(i);
+            targetPathFile = new File(targetPath, Integer.toString(i+1));
+            if (path==null) { continue; }
+            success = traverser.backup(path, translator, targetPathFile.getAbsolutePath()) || success;
         }
         return success;
     }
@@ -83,8 +89,10 @@ public class Tentaculo {
     public ArrayList<String> getTranslatedPaths(Descriptor descriptor) throws TentaculoException{
         IPathTranslator translator = traverserFactory.getPathTranslator();
         ArrayList<String> paths = translator.getPathsForSystem(descriptor);
+        String translated;
         for(int i=0; i<paths.size(); i++){
-            paths.set(i, translator.translatePath(paths.get(i)));
+            translated = translator.translatePath(paths.get(i));
+            paths.set(i, translated);
         }
         return translator.getPathsForSystem(descriptor);
     }

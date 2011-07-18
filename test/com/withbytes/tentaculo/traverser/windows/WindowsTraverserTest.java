@@ -76,10 +76,12 @@ public class WindowsTraverserTest {
         notInstalled.add(base+"one\\non_existant\\something.txt");
         notInstalled.add(base+"one\\non_existant2\\");
         notInstalled.add(base+"one\\non_existant2\\non_existant.info");
+        notInstalled.add(null);
         ArrayList<String> installed = new ArrayList<String>();
         installed.add(base+"one\\non_existant\\something.txt");
         installed.add(base+"one\\non_existant2\\");
         installed.add(base+"one\\");
+        installed.add(null);
         
         Descriptor descriptor = mock(Descriptor.class);
         when(descriptor.getWindowsPaths())

@@ -41,9 +41,10 @@ public class WindowsTraverser implements ITraverser{
     public boolean isGameInstalled(Descriptor descriptor, IPathTranslator translator) throws TentaculoException{
         ArrayList<String> paths = descriptor.getWindowsPaths();
         File pathToCheck;
-        for(String path : paths){
+        for(String path : paths){ 
+            if (path == null) { continue; }
             pathToCheck = new File(translator.translatePath(path));
-            if (pathToCheck.exists()) {
+            if (pathToCheck!=null && pathToCheck.exists()) {
                 return true;
             }
         }

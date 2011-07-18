@@ -49,9 +49,11 @@ public class Main {
      */
     public static void main(String[] args) {
         Logger logger = Logger.getLogger(Main.class.getName());
-        try {            
-            if (args.length != 1) {
-                logger.log(Level.INFO, 
+        try {
+            System.out.println(args.length);
+            System.out.println(args[args.length-1]);
+            if (args.length == 0 || args.length > 2) {
+                System.out.println(
                         "Tentaculo expects the following parameters: "
                         +"\n[-backup] CONFIGURATION_PATH"
                         +"\n\t-backup                    Optional. Performs the backup in addition to printing the translated paths."
@@ -69,8 +71,8 @@ public class Main {
             config = readConfiguration(configPath);
             descriptorsPath = config.get("Game descriptors path").toString();
             targetPath = config.get("Target path").toString();
-            logger.log(Level.INFO, "Descriptors path: {0}", descriptorsPath);
-            logger.log(Level.INFO, "Target path: {0}", targetPath);
+            System.out.println("Descriptors path: " + descriptorsPath);
+            System.out.println("Target path: " + targetPath);
             startTentaculo(descriptorsPath, targetPath, backupFlag);
         } 
         catch (Exception ex) {
@@ -108,29 +110,31 @@ public class Main {
     }
 
     private static void startTentaculo(String descriptorsPath, String targetPath, boolean backupFlag) throws TentaculoException {
-        Logger logger = Logger.getLogger(Main.class.getName());
         Tentaculo tentaculo = new Tentaculo(new TraverserFactory(), new DescriptorReader());
         File descriptorsPathFile = new File(descriptorsPath);
         ArrayList<Descriptor> descriptors = tentaculo.getDescriptors(descriptorsPathFile);
         for(Descriptor descriptor:descriptors){            
             printDebugInfo(tentaculo, descriptor);
             if (backupFlag){
-                logger.log(Level.INFO, "Starting backup of {0}", descriptor.getFolderName());
+                System.out.println("Starting backup of " + descriptor.getFolderName());
                 tentaculo.beginBackup(targetPath, descriptor);
-                logger.log(Level.INFO, "Completing backup of {0}", descriptor.getFolderName());
+                System.out.println("Completing backup of " + descriptor.getFolderName());
             }
         }
     }
 
-    private static void printDebugInfo(Tentaculo tentaculo, Descriptor descriptor) {
+    private static void printDebugInfo(Tentaculo tentaculo, Descriptor descriptor) throws TentaculoException {
         ArrayList<String> paths;
-        Logger logger = Logger.getLogger(Main.class.getName());        
         paths=tentaculo.getTranslatedPaths(descriptor);
-        logger.log(Level.INFO, "Processing descriptor for {0}", descriptor.getFolderName());
-        logger.log(Level.INFO, "{0} Paths in descriptor:", paths.size());        
+        System.out.println("Processing descriptor for " + descriptor.getFolderName());
+        System.out.println(paths.size() + " Paths in descriptor:");
+        String path;
         for(int i=0; i<paths.size(); i++){
-            Object[] params =  {i+1, paths.get(i)};
-            logger.log(Level.INFO, "\t{0} {1}", params);
+            path = paths.get(i);
+            if (path==null){
+                path = "N/A";
+            }
+            System.out.println( "\t"+(i+1)+" "+ path);
         }
     }
 

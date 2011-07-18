@@ -76,6 +76,7 @@ public class WindowsPathTranslatorTest {
                 instance.getUsername()+"/[NON_EXISTANT]";
         String result = instance.translatePath(originalPath);
         assertEquals(expected, result);
+        assertEquals(null, instance.translatePath(null));
         
         verify(defaultHelperMock, times(11)).setKeywordValue(anyString(),anyString(), anyString());
     }
