@@ -23,6 +23,7 @@
  */
 package com.withbytes.tentaculo;
 
+import org.junit.Ignore;
 import java.util.Map;
 import java.io.File;
 import com.withbytes.tentaculo.descriptor.Descriptor;
@@ -47,6 +48,14 @@ import static org.mockito.Mockito.*;
  * @author Javier Morales <moralesjm at gmail.com>
  */
 public class TentaculoTest {
+
+    ITraverser traverserMock;
+    Descriptor descriptorMock;
+    TentaculoException exceptionMock;
+    TraverserFactory factoryMock;
+    DescriptorReader readerMock;
+    IPathTranslator translatorMock;
+    String folderName = "FOLDER_NAME";
     
     public TentaculoTest() {
     }
@@ -61,6 +70,19 @@ public class TentaculoTest {
     
     @Before
     public void setUp() {
+        translatorMock = mock(IPathTranslator.class);
+        traverserMock = mock(ITraverser.class);
+        descriptorMock = mock(Descriptor.class);
+        exceptionMock = mock(TentaculoException.class);
+        factoryMock = mock(TraverserFactory.class);
+        readerMock = mock(DescriptorReader.class);
+        
+        when(descriptorMock.getFolderName())
+                .thenReturn(folderName);        
+        when(factoryMock.getPathTranslator())
+                .thenReturn(translatorMock);
+        when(factoryMock.getTraverser())
+                .thenReturn(traverserMock);
     }
     
     @After
@@ -68,77 +90,59 @@ public class TentaculoTest {
     }
 
     /**
-     * Test of beginBackup method, of class Tentaculo.
+     * Test of beginBackup method, of class Tentaculo. Success test.
      */
     @Test
-    public void testBeginBackup_String_Descriptor() throws TentaculoException {
+    public void testBeginBackup_String_Descriptor_Success() throws TentaculoException {
         //Seting up mocks
-        IPathTranslator translator = mock(IPathTranslator.class);
-        ITraverser traverser = mock(ITraverser.class);
-        Descriptor descriptor = mock(Descriptor.class);
-        TentaculoException exception = mock(TentaculoException.class);
-        TraverserFactory factory = mock(TraverserFactory.class);
-        DescriptorReader reader = mock(DescriptorReader.class);
+        ArrayList<String> threePaths = new ArrayList<String>();
+        threePaths.add("1");
+        threePaths.add("2");
+        threePaths.add("3");        
+        ArrayList<String> onePath = new ArrayList<String>();
+        onePath.add("1");
+        ArrayList<String> twoNullsThreePaths = new ArrayList<String>();
+        twoNullsThreePaths.add(null);
+        twoNullsThreePaths.add(null);
+        twoNullsThreePaths.add("3");        
         
-        ArrayList<String> paths = new ArrayList<String>();
-        String successTargetPath = "TARGET_SUCCESS";
-        String failureTargetPath = "TARGET_FAIL";
-        String exceptionTargetPath = "TARGET_EXCEPTION";
-        String mixedTargetPath = "TARGET_MIXED";
-        String folderName = "FOLDER_NAME";
-        paths.add("1");
-        paths.add("2");
-        paths.add("3");
+        when(translatorMock.getPathsForSystem(descriptorMock))
+                .thenReturn(onePath)
+                .thenReturn(threePaths)
+                .thenReturn(twoNullsThreePaths);
         
-        when(descriptor.getFolderName())
-                .thenReturn(folderName);
-        
-        when(factory.getPathTranslator())
-                .thenReturn(translator);        
-        when(factory.getTraverser())
-                .thenReturn(traverser);
-        
-        when(translator.getPathsForSystem(descriptor))
-                .thenReturn(null)
-                .thenReturn(new ArrayList<String>())
-                .thenReturn(paths);
-        
-        when(traverser.isGameInstalled(descriptor, translator))
-                .thenReturn(false)
+        when(traverserMock.isGameInstalled(descriptorMock, translatorMock))
                 .thenReturn(true);
 
-        when(traverser.backup(anyString(),eq(translator),eq(successTargetPath)))
-                .thenReturn(true);
-        when(traverser.backup(anyString(),eq(translator),eq(failureTargetPath)))
-                .thenReturn(false);
-        when(traverser.backup(anyString(),eq(translator),eq(mixedTargetPath)))
-                .thenReturn(false)
+        when(traverserMock.backup(anyString(),eq(translatorMock), anyString()))
                 .thenReturn(true);
                 
-        Tentaculo instance = new Tentaculo(factory, reader);
+        Tentaculo instance = new Tentaculo(factoryMock, readerMock);
         
-        //Test game not installed       
-        assertEquals(false, instance.beginBackup(successTargetPath, descriptor));
-        //Test null paths array
-        assertEquals(false, instance.beginBackup(successTargetPath, descriptor));
-        //Test empty paths array
-        assertEquals(false, instance.beginBackup(successTargetPath, descriptor));
-        
-        //Test all paths failed to copy
-        assertEquals(false, instance.beginBackup(failureTargetPath, descriptor));
-        
-        //Test success with all paths copying successfully
-        assertEquals(true, instance.beginBackup(successTargetPath, descriptor));
-        //Test success with a path not copying succesfully
-        assertEquals(true, instance.beginBackup(mixedTargetPath, descriptor));
-        
-        verify(traverser, times(7)).isGameInstalled(eq(descriptor), eq(translator));
-        verify(translator, times(6)).getPathsForSystem(eq(descriptor)); 
-        verify(traverser, times(3)).backup(anyString(), eq(translator), eq(successTargetPath));
-        verify(traverser, times(3)).backup(anyString(), eq(translator), eq(mixedTargetPath));
-        verify(traverser, times(3)).backup(anyString(), eq(translator), eq(failureTargetPath));
+        //Test game with 1 path
+        assertEquals(true, instance.beginBackup("TARGET", descriptorMock));
+        //Test game with 3 paths
+        assertEquals(true, instance.beginBackup("TARGET", descriptorMock));
+        //Test game with 3 paths being the first 2 null paths
+        assertEquals(true, instance.beginBackup("TARGET", descriptorMock));
+
+        verify(traverserMock, times(3)).isGameInstalled(eq(descriptorMock), eq(translatorMock));
+        verify(translatorMock, times(3)).getPathsForSystem(eq(descriptorMock)); 
+        verify(traverserMock, times(5)).backup(anyString(), eq(translatorMock), anyString());
     }
 
+    /**
+     * Test of beginBackup method, of class Tentaculo. Fail test.
+     */
+    @Test
+    public void testBeginBackup_String_Descriptor_Fail() throws TentaculoException {
+        fail("This test needs to be coded properly");
+        //Check without paths
+        //Check with all null paths
+        //Check with game not installed
+        //Check with exception
+    }
+        
     /**
      * Test of beginBackup method, of class Tentaculo.
      */
