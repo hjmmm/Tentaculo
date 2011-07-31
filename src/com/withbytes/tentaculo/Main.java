@@ -50,17 +50,16 @@ public class Main {
     public static void main(String[] args) {
         Logger logger = Logger.getLogger(Main.class.getName());
         try {
-            System.out.println(args.length);
-            System.out.println(args[args.length-1]);
             if (args.length == 0 || args.length > 2) {
                 System.out.println(
                         "Tentaculo expects the following parameters: "
                         +"\n[-backup] CONFIGURATION_PATH"
                         +"\n\t-backup                    Optional. Performs the backup in addition to printing the translated paths."
                         +"\n\tCONFIGURATION_PATH         Required. Path to the configuration file"
-                        +"\n\nExample: Tentaculo -backup \"c:\\tentaculo\\\"");
+                        +"\n\nExample: Tentaculo -backup \"c:\\tentaculo\\config.yml\"");
                 System.exit(1);
             }
+            System.out.println("Config file: " + args[args.length-1]);
             boolean backupFlag = args[0].toLowerCase().equals("-backup");
             HashMap config;
             String configPath, descriptorsPath, targetPath;
@@ -76,7 +75,7 @@ public class Main {
             startTentaculo(descriptorsPath, targetPath, backupFlag);
         } 
         catch (Exception ex) {
-            logger.log(Level.SEVERE, "There were a problem that could not be recovered.", ex);
+            logger.log(Level.SEVERE, "There were a problem that could not be recovered: " + ex.getMessage(), ex);
             System.exit(1);
         }
     }

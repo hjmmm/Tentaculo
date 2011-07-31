@@ -101,6 +101,9 @@ public class Tentaculo {
         ArrayList<Descriptor> descriptors = new ArrayList<Descriptor>();
         File[] descriptorsFiles = descriptorsPath.listFiles();
         Descriptor descriptor;
+        if (descriptorsFiles == null){
+            throw new TentaculoException("There are no descriptors in the descriptors path or the system can't access them.");
+        }
         for(File descriptorFile:descriptorsFiles){
             try{
                 descriptor = this.descriptorReader.readDescriptor(new FileInputStream(descriptorFile));
