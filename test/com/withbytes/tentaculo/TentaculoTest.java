@@ -136,13 +136,61 @@ public class TentaculoTest {
      */
     @Test
     public void testBeginBackup_String_Descriptor_Fail() throws TentaculoException {
-        fail("This test needs to be coded properly");
-        //Check without paths
-        //Check with all null paths
-        //Check with game not installed
-        //Check with exception
-    }
+        //Seting up mocks
+        ArrayList<String> noPaths = new ArrayList<String>();
+        ArrayList<String> allNullPaths = new ArrayList<String>();
+        allNullPaths.add(null);
+        allNullPaths.add(null);
         
+        when(translatorMock.getPathsForSystem(descriptorMock))
+                .thenReturn(noPaths, allNullPaths, allNullPaths);
+        
+        when(traverserMock.isGameInstalled(descriptorMock, translatorMock))
+                .thenReturn(false, true, true);
+
+        when(traverserMock.backup(anyString(),eq(translatorMock), anyString()))
+                .thenReturn(false);
+                
+        Tentaculo instance = new Tentaculo(factoryMock, readerMock);
+        
+        //Test game not installed
+        assertEquals(false, instance.beginBackup("TARGET", descriptorMock));
+        //Test game without paths
+        assertEquals(false, instance.beginBackup("TARGET", descriptorMock));
+        //Test game with all null paths
+        assertEquals(false, instance.beginBackup("TARGET", descriptorMock));
+
+        verify(traverserMock, times(3)).isGameInstalled(eq(descriptorMock), eq(translatorMock));
+        verify(translatorMock, times(2)).getPathsForSystem(eq(descriptorMock)); 
+        verify(traverserMock, times(0)).backup(anyString(), eq(translatorMock), anyString());
+    }
+
+    /**
+     * Test of beginBackup method, of class Tentaculo. Exception test.
+     */
+    @Test (expected=TentaculoException.class)
+    public void testBeginBackup_String_Descriptor_Exception() throws TentaculoException {
+        //Seting up mocks
+        ArrayList<String> paths = new ArrayList<String>();
+        paths.add("1");
+        paths.add("2");
+        
+        when(translatorMock.getPathsForSystem(descriptorMock))
+                .thenReturn(paths);
+        
+        when(traverserMock.isGameInstalled(descriptorMock, translatorMock))
+                .thenReturn(true);
+
+        when(traverserMock.backup(anyString(),eq(translatorMock), anyString()))
+                .thenThrow(exceptionMock);
+        
+        Tentaculo instance = new Tentaculo(factoryMock, readerMock);
+        
+        //Test exception        
+        assertEquals(false, instance.beginBackup("TARGET", descriptorMock));
+    }
+    
+    
     /**
      * Test of beginBackup method, of class Tentaculo.
      */
