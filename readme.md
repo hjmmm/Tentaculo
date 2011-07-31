@@ -92,7 +92,32 @@ system, open a shell, browse for the folder where you unzipped *Tentaculo* and e
 	
 	Example: Tentaculo -backup "c:\tentaculo\config.yml"
 
+In the release package you can find the file config.yml with default settings for *Tentaculo* the
+format of the file is the following:
 
+	## Tentaculo configuration file.
+	---
+	# System path where the game save's descriptors are store. Replace XXXX with your username.
+	Game descriptors path: C:\tentaculo\descriptors\
+	# System folder where the retrieved save files will be store. It will be created if doesn't exists.
+	Target path: C:\tentaculo\saves\
+
+There are 2 settings in the file, the "Game descriptors path" is where *Tentaculo* will look for
+descriptor files to process. The "Target path" is where the files are going to be copy. So edit the
+config.yml file and set the paths to what you need them to be. When done execute the following
+command:
+
+> java -jar Tentaculo.jar config.yml
+
+If there are no decriptors in the descriptors path you will get an error message, otherwise
+you will see the number of descriptors found and the paths that are found in each one. This won't
+copy any files but will only show the paths for each descriptor. Finally if the paths look good, you
+can execute the following command to perform the backup:
+
+> java -jar Tentaculo.jar -backup config.yml
+
+*Tentaculo* will present the same information about the descriptors and will present messages as it
+process each of the descriptors in the descriptors folder.
 
 ## Current features ##
 
@@ -102,6 +127,7 @@ system, open a shell, browse for the folder where you unzipped *Tentaculo* and e
 
 ## What is next ##
 
+- Execute the backup of only one descriptor
 - Files restoration feature
 - Graphic interface
 - Add Steam specific keywords
