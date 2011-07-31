@@ -75,9 +75,24 @@ requires the next portion of the path to identify what it refers to. In the exam
 
 	 - '[APPDATA]\Macromedia\Flash Player\#SharedObjects\[ANY_DIRECTORY]\localhost\program files (x86)\steam\steamapps\common\machinarium\Machinarium.exe\'
 
-That path is translated to 
+That path is translated to C:\Users\XXX\AppData\Roaming\Macromedia\Flash Player\#SharedObjects\3VFQEBA7\localhost\program files (x86)\steam\steamapps\common\machinarium\Machinarium.exe\ note that [ANY_DIRECTORY] was replaced with 3VFQEBA7 but to do that *Tentaculo* had to know what to look for inside that directory and see if that matched. 
 
 ## Using Tentaculo ##
+
+To use *Tentaculo* you need to have Java 6+ installed in your machine, then download the latest [release version](http://blog.withbytes.com/files/Tentaculo/latest.zip) or build it from the source code. Unzip the release in your
+system, open a shell, browse for the folder where you unzipped *Tentaculo* and execute the following command:
+
+> java -jar Tentaculo.jar
+
+*Tentaculo* will print the following information: 
+	Tentaculo expects the following parameters: 
+	[-backup] CONFIGURATION_PATH
+		-backup                    Optional. Performs the backup in addition to printing the translated paths.
+		CONFIGURATION_PATH         Required. Path to the configuration file
+	
+	Example: Tentaculo -backup "c:\tentaculo\config.yml"
+
+
 
 ## Current features ##
 
